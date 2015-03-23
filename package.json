@@ -19,8 +19,12 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pencilblue/pencilblue.git"
+    "url": "https://github.com/wickdninja/wickd.ninja"
   },
+  "scripts": {
+        "prestart": "npm install",
+        "start": "node pencilblue.js"
+    },
   "dependencies": {
     "async": "0.2.9",
     "cookies": "0.4.0",
@@ -60,7 +64,8 @@
   "readme": "See README file",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/pencilblue/pencilblue/issues"
+    "url": "https://github.com/wickdninja/wickd.ninja/issues"
   },
-  "_id": "pencilblue@0.3.0"
+  "_id": "pencilblue@0.3.0",
+  "subdomain": "wickdninja"
 }
