@@ -30,14 +30,14 @@ export default function Home() {
           className="text-center"
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-2 glow">
-            <span className="text-gray-300">wickd</span>
-            <span className="text-cyan-400">ninja</span>
+            <span className="text-gray-300">Nate</span>
+            <span className="text-cyan-400">&nbsp;Ross</span>
           </h1>
-          <div className="relative -mt-4">
+          <div className="relative -mt-3">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/katana-h6RLbD4MyHExwxISwEEGw4ljRh484W.png"
               alt="Katana"
-              width={800}
+              width={650}
               height={100}
               className="mx-auto"
               priority
