@@ -98,7 +98,8 @@ const FloatingSkills = () => {
         const containerHeight = document.documentElement.scrollHeight;
 
         return prevSkills.map((skill) => {
-          let { x, y, vx, vy, radius } = skill;
+          const radius = skill.radius;
+          let { x, y, vx, vy } = skill;
 
           // Update position
           x += vx;

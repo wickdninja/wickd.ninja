@@ -6,7 +6,7 @@ interface IError {
 }
 interface UseCompletionProps {
   api: string;
-  onError?: (error: any) => void;
+  onError?: (error: IError) => void;
 }
 
 const useCompletion = ({ api, onError }: UseCompletionProps) => {
@@ -39,10 +39,10 @@ const useCompletion = ({ api, onError }: UseCompletionProps) => {
 
       const data = await response.json();
       setCompletion(data.completion);
-    } catch (err: any) {
-      setError(err);
+    } catch (err: unknown) {
+      setError(err as IError);
       if (onError) {
-        onError(err);
+        onError(err as IError);
       }
     } finally {
       setIsLoading(false);
