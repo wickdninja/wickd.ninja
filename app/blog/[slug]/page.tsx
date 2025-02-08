@@ -6,7 +6,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BackNav } from "@/components/BackNav";
 
-const blogPosts = {
+export type BlogPost = {
+  title: string;
+  date: string;
+  tags: string[];
+  content: string;
+};
+export type BlogPosts = Record<string, BlogPost>;
+
+const blogPosts: BlogPosts = {
   "getting-started-with-openai-chat-completions": {
     title: "Getting Started with OpenAI Chat Completions",
     date: "2025-01-15",

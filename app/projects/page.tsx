@@ -10,7 +10,24 @@ import { ChevronLeft, ChevronRight, ExternalLink, Youtube } from "lucide-react";
 import Image from "next/image";
 import { BackNav } from "@/components/BackNav";
 
-const projects = [
+export type IHaveProject = {
+  project: Project;
+};
+
+export type Project = {
+  title: string;
+  description: string;
+  period: string;
+  link: string;
+  images: string[];
+  videos: string[];
+  technologies: string[];
+  role: string;
+  features?: string[];
+};
+
+export type Projects = Project[];
+const projects: Projects = [
   {
     title: "KidMath.ai",
     description: "An AI-powered math learning platform for children",
@@ -19,6 +36,7 @@ const projects = [
     images: [], // TODO: Add screenshots once provided
     technologies: ["Next.js", "OpenAI", "TypeScript", "Tailwind CSS"],
     role: "Lead Developer",
+    videos: [],
   },
   {
     title: "JJ Roofing & Remodel",
@@ -28,6 +46,7 @@ const projects = [
     images: [], // TODO: Add screenshots once provided
     technologies: ["React", "Next.js", "Tailwind CSS"],
     role: "Full Stack Developer",
+    videos: [],
   },
   {
     title: "Rise'n Roll Mobile Ordering",
@@ -35,6 +54,7 @@ const projects = [
       "A comprehensive mobile ordering solution for Rise'n Roll Bakery",
     period: "2022",
     link: "https://apps.apple.com/us/app/risen-roll-valparaiso/id1522338728?platform=iphone",
+    videos: [],
     images: [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/item-rMbLrN0eqMI78B2YXoeAMQNyIoMizt.webp",
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/home%202-yOVSWZYKXpcnNIdxOfa0aCmX9wSNQ8.webp",
@@ -66,6 +86,7 @@ const projects = [
       "https://youtu.be/EmvPFr_5jzE",
       "https://youtu.be/Sgra_0794VQ",
     ],
+    images: [],
     technologies: ["React", ".NET", "AWS", "Docker", "Kubernetes"],
     role: "Senior Developer",
     features: [
@@ -82,6 +103,7 @@ const projects = [
     period: "2020 - 2022",
     link: "https://sso.alliedpayment.com",
     images: [], // TODO: Add screenshots once provided
+    videos: [],
     technologies: ["React", "OAuth 2.0", "OpenID Connect", "AWS Cognito"],
     role: "Lead Developer",
     features: [
@@ -93,7 +115,7 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project }: IHaveProject) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -144,9 +166,9 @@ const ProjectCard = ({ project }) => {
         <Tabs defaultValue="overview">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="overview">Overview</TabsTrigger>
-            {(project.images?.length > 0 || project.videos?.length > 0) && (
-              <TabsTrigger value="media">Media</TabsTrigger>
-            )}
+            {(project?.images?.length ??
+              (0 > 0 || project?.videos?.length) ??
+              0 > 0) && <TabsTrigger value="media">Media</TabsTrigger>}
             <TabsTrigger value="features">Features</TabsTrigger>
           </TabsList>
           <TabsContent value="overview" className="mt-4">
@@ -186,43 +208,46 @@ const ProjectCard = ({ project }) => {
             </div>
           </TabsContent>
           <TabsContent value="media" className="mt-4">
-            {project.images?.length > 0 && (
-              <div className="relative">
-                <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden">
-                  <Image
-                    src={
-                      project.images[currentImageIndex] || "/placeholder.svg"
-                    }
-                    alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-                    fill
-                    className="object-contain"
-                  />
-                  {project.images.length > 1 && (
-                    <>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2"
-                        onClick={prevImage}
-                      >
-                        <ChevronLeft className="h-6 w-6" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2"
-                        onClick={nextImage}
-                      >
-                        <ChevronRight className="h-6 w-6" />
-                      </Button>
-                    </>
-                  )}
+            {project?.images?.length ??
+              (0 > 0 && (
+                <div className="relative">
+                  <div className="relative h-[500px] bg-gray-900 rounded-lg overflow-hidden">
+                    <Image
+                      src={
+                        project.images[currentImageIndex] || "/placeholder.svg"
+                      }
+                      alt={`${project.title} screenshot ${
+                        currentImageIndex + 1
+                      }`}
+                      fill
+                      className="object-contain"
+                    />
+                    {project.images.length > 1 && (
+                      <>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2"
+                          onClick={prevImage}
+                        >
+                          <ChevronLeft className="h-6 w-6" />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2"
+                          onClick={nextImage}
+                        >
+                          <ChevronRight className="h-6 w-6" />
+                        </Button>
+                      </>
+                    )}
+                  </div>
+                  <p className="text-center text-gray-400 mt-2">
+                    Image {currentImageIndex + 1} of {project.images.length}
+                  </p>
                 </div>
-                <p className="text-center text-gray-400 mt-2">
-                  Image {currentImageIndex + 1} of {project.images.length}
-                </p>
-              </div>
-            )}
+              ))}
             {project.videos?.length > 0 && (
               <div className="grid grid-cols-2 gap-4 mt-4">
                 {project.videos.map((video, index) => (

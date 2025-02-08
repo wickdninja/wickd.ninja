@@ -6,7 +6,27 @@ import { useSpring, animated } from "react-spring";
 import { FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
 import { BackNav } from "@/components/BackNav";
 import { Building2Icon, UserIcon } from "lucide-react";
-const experiences = [
+
+export type Role = {
+  title: string;
+  period: string;
+  location: string;
+  description: string;
+  skills: string[];
+};
+
+export type Experience = {
+  company: string;
+  logo: string;
+  roles: Role[];
+};
+
+export type ExperienceCardDto = {
+  experience: Experience;
+  isEven: boolean;
+};
+
+const experiences: Experience[] = [
   {
     company: "Bambee",
     logo: "/bambee.svg", // You'll need to add this logo to your public folder
@@ -88,7 +108,7 @@ const experiences = [
   },
 ];
 
-const ExperienceCard = ({ experience, isEven }) => {
+const ExperienceCard = ({ experience, isEven }: ExperienceCardDto) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const props = useSpring({
     opacity: isExpanded ? 1 : 0,

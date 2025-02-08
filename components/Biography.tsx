@@ -1,6 +1,12 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent } from "@/components/ui/card"
-import { FaTwitter, FaNpm, FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  FaTwitter,
+  FaNpm,
+  FaGithub,
+  FaLinkedin,
+  FaGlobe,
+} from "react-icons/fa";
 
 export default function Biography() {
   return (
@@ -17,15 +23,19 @@ export default function Biography() {
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-2xl font-bold text-cyan-400 mb-4">Who am I?</h2>
             <p className="text-gray-300 leading-relaxed mb-4">
-              I'm Nate Ross, also known as wickdninja, a Staff Engineer at Bambee with a passion for building scalable
-              applications and exploring the frontiers of AI technology. With over a decade of experience in full-stack
-              development, I specialize in creating robust solutions using modern technologies like React, Node.js, and
-              AWS.
+              I'm Nate Ross, also known as wickdninja, a Staff Engineer at
+              Bambee with a passion for building scalable applications and
+              exploring the frontiers of AI technology. With over a decade of
+              experience in full-stack development, I specialize in creating
+              robust solutions using modern technologies like React, Node.js,
+              and AWS.
             </p>
             <p className="text-gray-300 leading-relaxed mb-4">
-              My approach combines technical expertise with a ninja-like precision, always seeking the most elegant and
-              efficient solutions to complex problems. When I'm not coding, I'm constantly learning and exploring new
-              technologies to stay at the cutting edge of software development.
+              My approach combines technical expertise with a ninja-like
+              precision, always seeking the most elegant and efficient solutions
+              to complex problems. When I'm not coding, I'm constantly learning
+              and exploring new technologies to stay at the cutting edge of
+              software development.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6">
               <a
@@ -71,12 +81,14 @@ export default function Biography() {
             </div>
             <p className="text-gray-400 mt-4 text-sm">
               Want to see my digital business card? Run{" "}
-              <code className="bg-gray-800 px-2 py-1 rounded">npx wickdninja</code> in your terminal!
+              <code className="bg-gray-800 px-2 py-1 rounded">
+                npx wickdninja
+              </code>{" "}
+              in your terminal!
             </p>
           </div>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-
