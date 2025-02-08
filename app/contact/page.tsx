@@ -11,7 +11,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/newcard";
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
