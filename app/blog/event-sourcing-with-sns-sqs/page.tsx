@@ -1,4 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/newcard";
 import { Badge } from "@/components/ui/badge";
 import CodeBlock from "@/components/CodeBlock";
 import { BackNav } from "@/components/BackNav";
