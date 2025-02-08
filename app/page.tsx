@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import Navbar from "@/components/Navbar"
-import NinjaMaster from "@/components/NinjaMaster"
-import ParticleField from "@/components/ParticleField"
-import FloatingSkills from "@/components/FloatingSkills"
-import Biography from "@/components/Biography"
-import Image from "next/image"
+import { motion, useScroll, useTransform } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import NinjaMaster from "@/components/NinjaMaster";
+import ParticleField from "@/components/ParticleField";
+import FloatingSkills from "@/components/FloatingSkills";
+import Biography from "@/components/Biography";
+import Image from "next/image";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const { scrollYProgress } = useScroll();
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
     <main className="relative min-h-screen bg-gray-900 overflow-hidden">
@@ -31,7 +31,7 @@ export default function Home() {
         >
           <h1 className="text-6xl md:text-8xl font-bold mb-2 glow">
             <span className="text-gray-300">wickd</span>
-            <span className="text-cyan-400">.ninja</span>
+            <span className="text-cyan-400">ninja</span>
           </h1>
           <div className="relative -mt-4">
             <Image
@@ -59,6 +59,5 @@ export default function Home() {
       {/* Animated ninja */}
       <NinjaMaster />
     </main>
-  )
+  );
 }
-
