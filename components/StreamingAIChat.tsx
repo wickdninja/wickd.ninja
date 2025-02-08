@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card } from "./ui/card";
+import { Card } from "@/components/ui/card";
 
 interface IError {
   message: string;
